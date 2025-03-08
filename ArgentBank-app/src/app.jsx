@@ -1,5 +1,5 @@
-import React from 'react'
-import Router from 'react-router'
+//ArgentBank-app\src\app.jsx
+import Router from './Router.jsx'
 
 
 function App() {
