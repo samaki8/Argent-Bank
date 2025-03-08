@@ -22,19 +22,19 @@ function Home() {
                     <FeatureItem
                         className="feature-item"
                         title="You are our #1 priority"
-                        image="./img/icon-chat.png"
+                        image="./src/img/icon-chat.png"
                         description="Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes."
                     />
                     <FeatureItem
                         className="feature-item"
                         title="More savings means higher rates"
-                        image="./img/icon-money.png"
+                        image="./src/img/icon-money.png"
                         description="The more you save with us, the higher your interest rate will be!"
                     />
                     <FeatureItem
                         className="feature-item"
                         title="Security you can trust"
-                        image="./img/icon-security.png"
+                        image="./src/img/icon-security.png"
                         description="We use top of the line encryption to make sure your data and money is always safe."
                     />
                 </section>
