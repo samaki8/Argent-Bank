@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Profile from "./pages/Profile";
-import Error from "./pages/Error";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import User from "./Pages/User";
+import Error from "./Pages/Error";
 //import SignOut from "./pages/SignOut";
 function Router() {
 
@@ -17,7 +17,7 @@ function Router() {
                 {/*<Route path="/reset" element={<ResetPassword />} />*/}
                 {/*<Route path="/signout" element={<SignOut />} />
                 {/*<Route path="/account" element={<Account />} /> */}
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/user" element={<User />} />
                 {/* <Route path="/transfer" element={<Transfer />} /> */}
                 {/* <Route path="/deposit" element={<Deposit />} /> */}
                 {/* <Route path="/withdraw" element={<Withdraw />} /> */}
