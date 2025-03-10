@@ -1,23 +1,34 @@
 // src/components/UserInfo.js
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setUser } from './features/userSlice';
+import { fetchUserData } from '../features/userSlice'; // Corrigez le chemin vers userSlice
+import { useEffect } from 'react';
 
 function UserInfo() {
-    const user = useSelector((state) => state.user);
+    const { data: user, loading, error } = useSelector((state) => state.user); // Accès à l'état utilisateur
     const dispatch = useDispatch();
 
-    const handleSetUser = () => {
-        dispatch(setUser({ name: 'John Doe', email: 'john@example.com' }));
-    };
+    // Récupération des données utilisateur au montage du composant
+    useEffect(() => {
+        dispatch(fetchUserData()); // Assurez-vous que fetchUserData prend un argument si nécessaire
+    }, [dispatch]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error! {error}</div>;
+    }
 
     return (
         <div>
-            <p>Name: {user.name}</p>
-            <p>Email: {user.email}</p>
-            <button onClick={handleSetUser}>Set User</button>
+            {/* Affichage des données utilisateur */}
+            <p>Name: {user?.name}</p>
+            <p>Email: {user?.email}</p>
         </div>
     );
 }
 
 export default UserInfo;
+
