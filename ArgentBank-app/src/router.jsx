@@ -6,7 +6,6 @@ import User from "./Pages/User";
 import Error from "./Pages/Error";
 //import SignOut from "./pages/SignOut";
 function Router() {
-
     return (
         <BrowserRouter>
             <Routes>
@@ -21,7 +20,6 @@ function Router() {
                 {/* <Route path="/transfer" element={<Transfer />} /> */}
                 {/* <Route path="/deposit" element={<Deposit />} /> */}
                 {/* <Route path="/withdraw" element={<Withdraw />} /> */}
-                {/*<Route path="/404" element={<NotFound />} />*/}
                 <Route path="*" element={<Error />} />
             </Routes>
         </BrowserRouter>
