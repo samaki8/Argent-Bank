@@ -1,9 +1,12 @@
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import { useSelector } from 'react-redux';
 
 
 
 function Login() {
+    const user = useSelector((state) => state.userReducer);
+    console.log(user);
     return (
         <>
             <Header className="header" />

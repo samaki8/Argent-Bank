@@ -5,7 +5,8 @@ import { createRoot } from 'react-dom/client'
 import './css/main.css'
 import App from './app'
 //import reportWebVitals from './reportWebVitals'
-import Store from './src/store/store.jsx'
+// REDUX
+import Store from './store/store.jsx'
 import { Provider } from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
