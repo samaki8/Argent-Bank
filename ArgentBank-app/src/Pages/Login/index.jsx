@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../action/loginUser';
+import { loginUser } from '../../actions/loginUser';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 function Login() {
-    const dispatch = useDispatch();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const authError = useSelector((state) => state.auth.error);
+    const dispatch = useDispatch();
+    const authError = useSelector((state) => state.auth?.error || null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +18,7 @@ function Login() {
 
     return (
         <>
-            <header className="header">Header Component</header>
+            <Header className="header" />
             <main className="main bg-dark">
                 <section className="sign-in-content">
                     <i className="fa fa-user-circle sign-in-icon"></i>
@@ -46,7 +49,7 @@ function Login() {
                     {authError && <p style={{ color: 'red' }}>{authError}</p>}
                 </section>
             </main>
-            <footer className="footer">Footer Component</footer>
+            <Footer className="footer" />
         </>
     );
 }

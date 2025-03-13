@@ -1,7 +1,7 @@
 const initialState = {
   user: null,
   token: null,
-  error: null,
+  error: null, // Initialisez correctement la propriété error
 };
 
 const authReducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) => {
     case 'USER_LOGIN_FAILURE':
       return {
         ...state,
-        error: action.payload,
+        error: action.payload, // Stocke le message d'erreur
       };
     case 'USER_LOGOUT':
       return initialState; // Réinitialise l'état utilisateur
@@ -26,5 +26,3 @@ const authReducer = (state = initialState, action) => {
 };
 
 export default authReducer;
-
-

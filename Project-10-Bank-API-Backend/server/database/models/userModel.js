@@ -1,3 +1,4 @@
+//Project-10-Bank-API-Backend\server\database\models\userModel.js
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema(
