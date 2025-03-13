@@ -25,9 +25,4 @@ export const loginUser = (email, password) => {
   };
 };
 
-// Action pour se déconnecter
-export const logoutUser = () => {
-  return {
-    type: 'USER_LOGOUT',
-  };
-};
+
