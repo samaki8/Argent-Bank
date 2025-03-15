@@ -18,8 +18,9 @@ function Login() {
         e.preventDefault();
         dispatch(loginUser({ email, password }))
             .unwrap() // Permet de gérer les promesses rejetées si nécessaire
-            .then(() => {
-                if (token) {
+            .then((response) => {
+                if (response.body.token) {
+                    localStorage.setItem('token', response.body.token); // Stocke le token dans le localStorage
                     navigate('/user'); // Redirige vers /user si le token existe
                 }
             })
