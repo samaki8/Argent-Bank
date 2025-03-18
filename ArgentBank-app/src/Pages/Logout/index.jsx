@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from '../../actions/logoutUser'; // Assurez-vous que cette action est définie
-
+//import { logoutUser } from '../../actions/logoutUser'; // Assurez-vous que cette action est définie
+import { logoutUser } from '../../features/userSlice';
 const Logout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();

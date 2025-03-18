@@ -1,20 +1,19 @@
 //ArgentBank-app\src\store\store.jsx
 import { configureStore } from '@reduxjs/toolkit';
-//import userReducer from '../features/userSlice';
-//import rootReducer from '../reducers/index';
-import authReducer from '../features/authSlice';
-//import { loginUser } from '../action/loginUser';
-//import { logoutUser } from '../action/logoutUser';
-//import { getuser } from '../action/user.action';
-import { thunk } from 'redux-thunk';
+import userReducer from '../features/userSlice';
+
+
 const Store = configureStore({
 
     reducer: {
-        auth: authReducer,
+
+        user: userReducer,
 
     },
     devTools: true, //  Activer les outils de développement Redux -> à suuprimer en Production
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false
+    }),
 
 });
 

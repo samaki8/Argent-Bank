@@ -2,36 +2,121 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Action asynchrone pour récupérer les données depuis le backend
-export const fetchUserData = createAsyncThunk('user/fetchUserData', async (userId) => {
-  const response = await axios.get(`/api/users/${userId}`);
-  return response.data;
-});
+
+// Fonction asynchrone pour récupérer les informations utilisateur
+export const getUserProfile= createAsyncThunk(
+  'user/getUserProfile',
+  async (thunkAPI) => {
+      try {
+        const token= thunkAPI.getState().auth.token; // je retire l'appel token depuis asyn
+      const response = await axios.get('http://localhost:3001/api/v1/user/profile', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data.body; // Retourne les données utilisateur
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la récupération des informations utilisateur');
+    }
+  }
+);
+
+export const updateUserProfile = createAsyncThunk(
+  'user/updateUserProfile',
+  async (user, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.token;
+      const response = await axios.put('http://localhost:3001/api/v1/user/profile', user, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data.body; // Retourne les données utilisateur
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la mise à jour des informations utilisateur');
+    }
+  }
+);
+
+
+export const loginUser = createAsyncThunk(
+  'auth/login',
+  async ({ email, password }, thunkAPI) => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/v1/user/login', {
+        email,
+        password,
+      });
+      return response.data; // Retourne les données utilisateur et le token
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la connexion');
+    }
+  }
+);
+export const logoutUser = () => {
+    return async (dispatch) => {
+        dispatch
+      
+    }
+}
+export const createUser = createAsyncThunk(
+    'user/create',
+    async ({ firstname, lastname, email, password }, thunkAPI) => {
+        try {
+          const response = await axios.post('http://localhost:3001/api/v1/user/create', {
+            firstname,
+            lastname,
+            email,
+            password,
+        });
+        return response.data; // Retourne les données utilisateur et le token
+        } catch (error) {
+        return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la connexion');
+        }
+    }
+);
+    
+const initialState = {
+  user: null,
+  token: null,
+  error: null,
+};
 
 const userSlice = createSlice({
-  name: 'user',
-  initialState: {
-    data: null,
-    loading: false,
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchUserData.pending, (state) => {
-        state.loading = true;
+    name: 'user',
+    initialState,
+    reducers: {
+        logout(state) {
+        state.user = null;
+        state.token = null;
         state.error = null;
-      })
-      .addCase(fetchUserData.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
-      })
-      .addCase(fetchUserData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
-  },
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(loginUser.fulfilled, (state, action) => {
+            state.user = action.payload.body.user;
+            state.token = action.payload.body.token;
+            state.error = null;
+        })
+        .addCase(loginUser.rejected, (state, action) => {
+            state.error = action.payload;
+        })
+        .addCase(getUserProfile.fulfilled, (state, action) => {
+            state.user = action.payload; // je retire .user
+            state.error = null;
+        })
+        .addCase(getUserProfile.rejected, (state, action) => {
+            state.error = action.payload;
+        })
+        .addCase(updateUserProfile.fulfilled, (state, action) => {
+            state.user = action.payload; // je retire .user
+            state.error = null;
+        })
+        .addCase(updateUserProfile.rejected, (state, action) => {
+            state.error = action.payload;
+        });
+    },
 });
-
-export default userSlice.reducer;
-
+export const { logout } = userSlice.actions;
+ export default userSlice.reducer;

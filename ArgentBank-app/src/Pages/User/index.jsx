@@ -1,6 +1,9 @@
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Account from '../../components/account';
+//import { getUserProfile } from '../../features/userSlice';
+//import { updateUserProfile } from '../../features/userSlice';
+
 
 
 function User() {

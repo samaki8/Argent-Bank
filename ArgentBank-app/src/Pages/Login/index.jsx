@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../features/authSlice'; // Import de la fonction asynchrone
+import { loginUser } from '../../features/userSlice'; // Import de la fonction asynchrone
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { useNavigate } from 'react-router-dom';
