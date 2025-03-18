@@ -11,7 +11,7 @@ const LogoutButton = () => {
 
     const handleLogout = () => {
         dispatch(logoutUser()); // Déconnecte l'utilisateur via Redux
-        navigate("/logout"); // Redirige vers la page de déconnexion ou d'accueil
+        navigate("/Logout"); // Redirige vers la page de déconnexion ou d'accueil
     };
 
     return (

@@ -53,12 +53,13 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
-export const logoutUser = () => {
+/*
+export const asyncLogoutUser = () => {
     return async (dispatch) => {
         dispatch
-      
     }
 }
+    */
 export const createUser = createAsyncThunk(
     'user/create',
     async ({ firstname, lastname, email, password }, thunkAPI) => {
@@ -86,7 +87,7 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        logout(state) {
+        logoutUser(state) {
         state.user = null;
         state.token = null;
         state.error = null;
@@ -118,5 +119,5 @@ const userSlice = createSlice({
         });
     },
 });
-export const { logout } = userSlice.actions;
+export const { logoutUser } = userSlice.actions;
  export default userSlice.reducer;
