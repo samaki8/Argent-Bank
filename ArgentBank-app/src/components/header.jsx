@@ -5,8 +5,8 @@ import logo from "../img/argentBankLogo.png"; // Chemin corrigé pour le logo
 import LogoutButton from "./LogoutButton";
 
 function Header() {
-    const user = useSelector((state) => state.user); // Récupérer l'état auth depuis Redux
-    const token = user?.token; // Vérifier si le token existe
+    const user = useSelector((state) => state.user);
+    const token = user?.token;
 
     return (
         <header>

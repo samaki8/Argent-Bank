@@ -4,23 +4,47 @@ import axios from 'axios';
 
 
 // Fonction asynchrone pour récupérer les informations utilisateur
-export const getUserProfile= createAsyncThunk(
+export const getUserProfile = createAsyncThunk(
   'user/getUserProfile',
-  async (thunkAPI) => {
-      try {
-        const token= thunkAPI.getState().auth.token; // je retire l'appel token depuis asyn
-      const response = await axios.get('http://localhost:3001/api/v1/user/profile', {
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().user.token;
+      const response = await axios.post('http://localhost:3001/api/v1/user/profile', {}, { // Le corps peut être vide -- Si vous souhaitez conserver la méthode POST pour récupérer les données utilisateur, cela va à l'encontre des bonnes pratiques RESTful. Cependant, cela peut être utilisé si vous avez besoin d'envoyer des données sensibles ou complexes dans le corps de la requête.Solution :Si vous décidez de garder POST pour cette route, modifiez votre thunk pour utiliser une requête POST :
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       return response.data.body; // Retourne les données utilisateur
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la récupération des informations utilisateur');
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || 'Erreur lors de la récupération des informations utilisateur'
+      );
     }
   }
 );
 
+
+/*
+export const getUserProfile= createAsyncThunk(
+  'user/getUserProfile',
+  async (_, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().user.token; // je retire l'appel token depuis asyn
+        console.log('Token utilisé pour getUserProfile:', token);
+
+      const response = await axios.get('http://localhost:3001/api/v1/user/profile',user, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data.body; // Retourne les données utilisateur
+      } catch (error) {
+        console.error('Erreur lors de la récupération du profil utilisateur :', error.response);
+      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la récupération des informations utilisateur');
+    }
+  }
+);
+*/
 export const updateUserProfile = createAsyncThunk(
   'user/updateUserProfile',
   async (user, thunkAPI) => {
@@ -53,16 +77,11 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
-/*
-export const asyncLogoutUser = () => {
-    return async (dispatch) => {
-        dispatch
-    }
-}
-    */
+
 export const createUser = createAsyncThunk(
     'user/create',
-    async ({ firstname, lastname, email, password }, thunkAPI) => {
+  async ({ firstname, lastname, email, password }, thunkAPI) => {
+      
         try {
           const response = await axios.post('http://localhost:3001/api/v1/user/create', {
             firstname,
@@ -77,17 +96,20 @@ export const createUser = createAsyncThunk(
     }
 );
     
-const initialState = {
-  user: null,
-  token: null,
-  error: null,
-};
+
 
 const userSlice = createSlice({
     name: 'user',
-    initialState,
-    reducers: {
-        logoutUser(state) {
+  initialState:{
+      user: null,
+      token: null,
+      error: null,
+    },
+  reducers: {
+    setToken(state, action) {
+      state.token = action.payload;
+    },  
+    logoutUser(state) {
         state.user = null;
         state.token = null;
         state.error = null;
@@ -104,7 +126,7 @@ const userSlice = createSlice({
             state.error = action.payload;
         })
         .addCase(getUserProfile.fulfilled, (state, action) => {
-            state.user = action.payload; // je retire .user
+            state.user = action.payload; // je retire .body.user
             state.error = null;
         })
         .addCase(getUserProfile.rejected, (state, action) => {
@@ -119,5 +141,5 @@ const userSlice = createSlice({
         });
     },
 });
-export const { logoutUser } = userSlice.actions;
+export const { logoutUser ,setToken} = userSlice.actions;
  export default userSlice.reducer;

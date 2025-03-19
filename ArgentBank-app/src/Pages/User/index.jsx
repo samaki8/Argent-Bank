@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Account from '../../components/account';
-import { getUserProfile } from '../../features/userSlice';
-import { updateUserProfile } from '../../features/userSlice';
+import { getUserProfile, updateUserProfile, setToken } from '../../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 
 function User() {
     const [firstName, setFirstName] = useState('');
@@ -13,18 +13,38 @@ function User() {
     const [isEditing, setIsEditing] = useState(false);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user?.user || null);
-    const token = useSelector((state) => state.user?.token || null);
+    //const token = useSelector((state) => state.user?.token || null);
     const navigate = useNavigate();
+    // const error = useSelector((state) => state.user?.error || null);
     const error = useSelector((state) => state.user?.error || null);
 
-    // Initialisation des champs avec les données de l'utilisateur
-    React.useEffect(() => {
+    useEffect(() => {
+        if (error) {
+            console.error('Erreur lors de la récupération du profil utilisateur :', error);
+        }
+    }, [error]);
+
+
+    //Initialisation des champs avec les données de l'utilisateur
+
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+
+            dispatch(setToken(storedToken)); // Créez une action setToken si nécessaire
+            console.log('Récupération des données utilisateur', getUserProfile());
+            dispatch(getUserProfile());
+        }
+    }, [dispatch]);
+
+    useEffect(() => {
         if (user) {
+            console.log('Données utilisateur :', user);
             setFirstName(user.firstName || '');
             setLastName(user.lastName || '');
         }
     }, [user]);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateUserProfile({ firstName, lastName }))
@@ -53,12 +73,17 @@ function User() {
 
             <main className="main bg-dark">
                 <div className="header">
-                    <h1>Welcome back<br />{firstName} {lastName}!</h1>
+                    <h1>Welcome back<br /> {firstName} {lastName}!</h1>
                     <button type="button" className="edit-button" onClick={() => setIsEditing(true)}>Edit Name</button>
                     {isEditing ? (
                         <form onSubmit={handleSubmit} className="form">
                             <label htmlFor="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="Tony" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="Tony"
+                                value={firstName} onChange={(e) => setFirstName(e.target.value)} />
 
                             <label htmlFor="lastName">Last Name</label>
                             <input type="text" id="lastName" name="lastName" placeholder="Jarvis" value={lastName} onChange={(e) => setLastName(e.target.value)} />

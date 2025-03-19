@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import User from "./Pages/User";
 import Error from "./Pages/Error";
-import Logout from "./Pages/Logout"; // Si vous avez une page Logout
+import Logout from "./Pages/Logout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function Router() {
