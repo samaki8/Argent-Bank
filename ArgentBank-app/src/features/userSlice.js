@@ -24,32 +24,12 @@ export const getUserProfile = createAsyncThunk(
 );
 
 
-/*
-export const getUserProfile= createAsyncThunk(
-  'user/getUserProfile',
-  async (_, thunkAPI) => {
-      try {
-        const token = thunkAPI.getState().user.token; // je retire l'appel token depuis asyn
-        console.log('Token utilisé pour getUserProfile:', token);
 
-      const response = await axios.get('http://localhost:3001/api/v1/user/profile',user, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      return response.data.body; // Retourne les données utilisateur
-      } catch (error) {
-        console.error('Erreur lors de la récupération du profil utilisateur :', error.response);
-      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Erreur lors de la récupération des informations utilisateur');
-    }
-  }
-);
-*/
 export const updateUserProfile = createAsyncThunk(
   'user/updateUserProfile',
   async (user, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token;
+      const token = thunkAPI.getState().user.token;
       const response = await axios.put('http://localhost:3001/api/v1/user/profile', user, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -100,7 +80,7 @@ export const createUser = createAsyncThunk(
 
 const userSlice = createSlice({
     name: 'user',
-  initialState:{
+    initialState:{
       user: null,
       token: null,
       error: null,
@@ -137,7 +117,7 @@ const userSlice = createSlice({
             state.error = null;
         })
         .addCase(updateUserProfile.rejected, (state, action) => {
-            state.error = action.payload;
+            state.error = action.payload || 'Erreur lors de la mise à jour des informations utilisateur';
         });
     },
 });

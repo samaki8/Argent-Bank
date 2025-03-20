@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import logo from "../img/argentBankLogo.png"; // Chemin corrigé pour le logo
 import LogoutButton from "./LogoutButton";
+//import { useEffect, useState } from "react";
+//import { getUserProfile, updateUserProfile, setToken } from '../../features/userSlice';
 
+// Composant Header qui contient le menu de navigation et les informations de l'utilisateur authentifié
 function Header() {
-    const user = useSelector((state) => state.user);
-    const token = user?.token;
+    // Récupération des données utilisateur
+    const user = useSelector((state) => state.user?.user || null);
+    const token = useSelector((state) => state.user?.token || null);
+
+
 
     return (
         <header>
@@ -23,7 +29,7 @@ function Header() {
                             {/* Lien vers la page utilisateur */}
                             <Link className="main-nav-item" to="/user">
                                 <i className="fa fa-user-circle"></i>
-                                My Profile
+                                {user?.firstName || 'chargement ...'}
                             </Link>
                             {/* Bouton de déconnexion */}
                             <LogoutButton />

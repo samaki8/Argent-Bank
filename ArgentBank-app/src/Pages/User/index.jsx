@@ -45,15 +45,16 @@ function User() {
             setLastName(user.lastName || '');
         }
     }, [user]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(updateUserProfile({ firstName, lastName }))
             .unwrap()
             .then((response) => {
-                if (response.body.token) {
+                if (response && response.body && response.body.token) {
                     localStorage.setItem('token', response.body.token);
-                    navigate('/user');
                 }
+                navigate('/user'); // Redirige toujours vers la page utilisateur
             })
             .catch((error) => {
                 console.error('Erreur lors de la mise à jour du profil :', error);
@@ -61,6 +62,25 @@ function User() {
         setIsEditing(false); // Réinitialise l'état d'édition
     };
 
+    /*
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(updateUserProfile({ firstName, lastName }))
+            .unwrap()
+            .then((response) => {
+                if (response && response.body && response.body.token) {
+                    localStorage.setItem('token', response.body.token);
+                    navigate('/user');
+                } else {
+                    console.error('Reponse du serveur sans token :', response);
+                }
+            })
+            .catch((error) => {
+                console.error('Erreur lors de la mise à jour du profil :', error);
+            });
+        setIsEditing(false); // Réinitialise l'état d'édition
+    };
+     */
     const handleCancel = () => {
         setIsEditing(false); // Réinitialise l'état d'édition
         setFirstName(user.firstName || ''); // Réinitialise les champs avec les données de l'utilisateur
@@ -82,11 +102,11 @@ function User() {
                                 type="text"
                                 id="firstName"
                                 name="firstName"
-                                placeholder="Tony"
+                                placeholder={firstName}
                                 value={firstName} onChange={(e) => setFirstName(e.target.value)} />
 
                             <label htmlFor="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Jarvis" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            <input type="text" id="lastName" name="lastName" placeholder={lastName} value={lastName} onChange={(e) => setLastName(e.target.value)} />
 
                             <button type="submit" className="submit-button">Submit</button>
                             <button type="button" className="cancel-button" onClick={handleCancel}>Cancel</button>
