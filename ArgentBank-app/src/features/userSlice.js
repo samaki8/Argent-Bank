@@ -2,7 +2,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
 // Fonction asynchrone pour récupérer les informations utilisateur
 export const getUserProfile = createAsyncThunk(
   'user/getUserProfile',
@@ -22,9 +21,7 @@ export const getUserProfile = createAsyncThunk(
     }
   }
 );
-
-
-
+// Fonction asynchrone pour mettre à jour les informations utilisateur
 export const updateUserProfile = createAsyncThunk(
   'user/updateUserProfile',
   async (user, thunkAPI) => {
@@ -41,8 +38,7 @@ export const updateUserProfile = createAsyncThunk(
     }
   }
 );
-
-
+// Fonction asynchrone pour se connecter
 export const loginUser = createAsyncThunk(
   'auth/login',
   async ({ email, password }, thunkAPI) => {
@@ -57,7 +53,7 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
-
+// Fonction asynchrone pour créer un utilisateur
 export const createUser = createAsyncThunk(
     'user/create',
   async ({ firstname, lastname, email, password }, thunkAPI) => {
@@ -75,15 +71,14 @@ export const createUser = createAsyncThunk(
         }
     }
 );
-    
-
-
+ // Création du slice pour gérer les informations utilisateur   
 const userSlice = createSlice({
     name: 'user',
     initialState:{
       user: null,
       token: null,
       error: null,
+      loading: false,
     },
   reducers: {
     setToken(state, action) {
@@ -93,33 +88,53 @@ const userSlice = createSlice({
         state.user = null;
         state.token = null;
         state.error = null;
-        },
     },
-    extraReducers: (builder) => {
+     clearError: (state) => {
+        state.error = null;
+    }
+  },
+  extraReducers: (builder) => {
         builder
         .addCase(loginUser.fulfilled, (state, action) => {
             state.user = action.payload.body.user;
             state.token = action.payload.body.token;
-            state.error = null;
+          state.error = null;
+          state.loading = false;
         })
         .addCase(loginUser.rejected, (state, action) => {
-            state.error = action.payload;
+          state.error = action.payload;
+          state.loading = false;
         })
+          .addCase(loginUser.pending, (state) => {
+        state.loading = true;
+      })
         .addCase(getUserProfile.fulfilled, (state, action) => {
-            state.user = action.payload; // je retire .body.user
+          state.user = action.payload;
+           state.loading = false;// je retire .body.user
             state.error = null;
         })
         .addCase(getUserProfile.rejected, (state, action) => {
-            state.error = action.payload;
+          state.error = action.payload;
+           state.loading = false;
         })
+        .addCase(getUserProfile.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(updateUserProfile.pending, (state) => {
+          state.loading = true;
+      })
         .addCase(updateUserProfile.fulfilled, (state, action) => {
             state.user = action.payload; // je retire .user
-            state.error = null;
+          state.error = null;
+          state.loading = false;
         })
         .addCase(updateUserProfile.rejected, (state, action) => {
-            state.error = action.payload || 'Erreur lors de la mise à jour des informations utilisateur';
+          state.error = action.payload || 'Erreur lors de la mise à jour des informations utilisateur';
+          state.loading = false;
         });
     },
 });
-export const { logoutUser ,setToken} = userSlice.actions;
+
+export const { logoutUser, setToken, clearError } = userSlice.actions;
+
  export default userSlice.reducer;

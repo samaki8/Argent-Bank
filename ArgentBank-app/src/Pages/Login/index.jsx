@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../features/userSlice'; // Import de la fonction asynchrone
+import { loginUser, clearError } from '../../features/userSlice'; // Import de la fonction asynchrone
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { useNavigate } from 'react-router-dom';
@@ -10,12 +10,23 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const authError = useSelector((state) => state.auth?.error || null);
+
+
+
     const token = useSelector((state) => state.auth?.token || null); // Récupère le token depuis Redux
+    const { error: authError, loading } = useSelector((state) => state.user);
+
+
     const navigate = useNavigate();
+    // Réinitialise les erreurs au montage et démontage du composant
+    useEffect(() => {
+        dispatch(clearError());
+        return () => dispatch(clearError());
+    }, [dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(clearError());
         dispatch(loginUser({ email, password }))
             .unwrap() // Permet de gérer les promesses rejetées si nécessaire
             .then((response) => {
@@ -45,6 +56,7 @@ function Login() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
+                                disabled={loading}
                             />
                         </div>
                         <div className="input-wrapper">
@@ -55,11 +67,23 @@ function Login() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                disabled={loading}
                             />
                         </div>
-                        <button type="submit" className="sign-in-button">Sign In</button>
+
+                        <button
+                            type="submit"
+                            className="sign-in-button"
+                            disabled={loading}
+                        >
+                            {loading ? 'Connexion en cours...' : 'Sign In'}
+                        </button>
                     </form>
-                    {authError && <p style={{ color: 'red' }}>{authError}</p>}
+                    {authError && (
+                        <p className="error-message">
+                            ❌ Échec de la connexion : {authError}
+                        </p>
+                    )}
                 </section>
             </main>
             <Footer className="footer" />

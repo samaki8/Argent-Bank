@@ -5,8 +5,6 @@ import Account from '../../components/account';
 import { getUserProfile, updateUserProfile, setToken } from '../../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-
 function User() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -23,11 +21,7 @@ function User() {
             console.error('Erreur lors de la récupération du profil utilisateur :', error);
         }
     }, [error]);
-
-
     //Initialisation des champs avec les données de l'utilisateur
-
-
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
@@ -62,25 +56,7 @@ function User() {
         setIsEditing(false); // Réinitialise l'état d'édition
     };
 
-    /*
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(updateUserProfile({ firstName, lastName }))
-            .unwrap()
-            .then((response) => {
-                if (response && response.body && response.body.token) {
-                    localStorage.setItem('token', response.body.token);
-                    navigate('/user');
-                } else {
-                    console.error('Reponse du serveur sans token :', response);
-                }
-            })
-            .catch((error) => {
-                console.error('Erreur lors de la mise à jour du profil :', error);
-            });
-        setIsEditing(false); // Réinitialise l'état d'édition
-    };
-     */
+
     const handleCancel = () => {
         setIsEditing(false); // Réinitialise l'état d'édition
         setFirstName(user.firstName || ''); // Réinitialise les champs avec les données de l'utilisateur

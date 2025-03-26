@@ -19,6 +19,7 @@ body {
 
 .bg-dark {
   background-color: #12002b;
+  padding: 30px;
 }
 
 .sr-only {
@@ -45,6 +46,15 @@ body {
 .main-nav a {
   font-weight: bold;
   color: #2c3e50;
+}
+
+.error-message {
+    color: #ff4b4b;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ff4b4b;
+    border-radius: 4px;
+    background-color: #ffe6e6;
 }
 
 .main-nav a.router-link-exact-active {
