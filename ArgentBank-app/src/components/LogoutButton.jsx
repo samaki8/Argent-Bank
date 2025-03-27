@@ -1,16 +1,16 @@
 //ArgentBank-app\src\components\LogoutButton.jsx
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../features/userSlice";
-import { Link } from "react-router-dom";
+
 
 const LogoutButton = () => {
     const navigate = useNavigate(); // Hook pour la navigation
     const dispatch = useDispatch(); // Hook pour Redux
 
-    const handleLogout = () => {
-        dispatch(logoutUser()); // Déconnecte l'utilisateur via Redux
+    const handleLogout = async () => {
+        await dispatch(logoutUser()); // Déconnecte l'utilisateur via Redux
         localStorage.removeItem('token');
         navigate("/logout"); // Redirige vers la page de déconnexion ou d'accueil
     };
