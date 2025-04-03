@@ -11,8 +11,6 @@ function Login() {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
-
-
     const token = useSelector((state) => state.auth?.token || null); // Récupère le token depuis Redux
     const { error: authError, loading } = useSelector((state) => state.user);
 
