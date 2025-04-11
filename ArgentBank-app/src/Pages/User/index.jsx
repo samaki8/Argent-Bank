@@ -107,28 +107,33 @@ function User() {
                         <>
                             <h1> Welcome back </h1>
                             <form onSubmit={handleSubmit} className="form">
-                                <label htmlFor="firstName">First Name</label>
-                                <input
-                                    type="text"
-                                    id="firstName"
-                                    name="firstName"
-                                    placeholder={user?.firstName || ''}
-                                    value={FirstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                />
+                                <div className="input-group">
 
-                                <label htmlFor="lastName">Last Name</label>
-                                <input
-                                    type="text"
-                                    id="lastName"
-                                    name="lastName"
-                                    placeholder={user?.lastName || ''}
-                                    value={LastName}
-                                    onChange={(e) => setLastName(e.target.value)}
-                                />
+                                    <label htmlFor="firstName"></label>
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        name="firstName"
+                                        placeholder={user?.firstName || ''}
+                                        value={FirstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                    />
 
-                                <button type="submit" className="submit-button">Save</button>
-                                <button type="button" className="cancel-button" onClick={handleCancel}>Cancel</button>
+                                    <label htmlFor="lastName"></label>
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        placeholder={user?.lastName || ''}
+                                        value={LastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                    />
+                                </div>
+                                {/* Conteneur des boutons */}
+                                <div className="button-group">
+                                    <button type="submit" className="submit-button">Save</button>
+                                    <button type="button" className="cancel-button" onClick={handleCancel}>Cancel</button>
+                                </div>
                             </form>
                         </>
                     )}

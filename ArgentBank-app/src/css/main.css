@@ -110,6 +110,68 @@ body {
   font-size: 0.9rem;
 }
 
+
+/*11-04-2025 */
+
+/* Style général pour le header */
+.header {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+
+.input-group {
+    display: inline-flex;
+    margin-bottom: 5px;
+    font-weight: bold;
+    gap:5px
+   
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px; 
+}
+
+
+
+
+.form input[type="text"] {
+    width: 150px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.form .button-group {
+    display: flex; 
+    gap: 20px; 
+}
+
+
+.submit-button,
+.cancel-button {
+    background-color: #00bc77; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90px;
+}
+
+.submit-button:hover,
+.cancel-button:hover {
+    background-color: #008f5a; 
+}
+
+
 @media (min-width: 920px) {
   .hero {
     height: 400px;
