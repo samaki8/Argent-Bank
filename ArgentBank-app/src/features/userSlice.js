@@ -87,7 +87,8 @@ const userSlice = createSlice({
     logoutUser(state) {
         state.user = null;
         state.token = null;
-        state.error = null;
+      state.error = null;
+        sessionStorage.removeItem('token'); // Supprime le token du sessionStorage lors de la déconnexion
     },
      clearError: (state) => {
         state.error = null;
@@ -98,8 +99,9 @@ const userSlice = createSlice({
         .addCase(loginUser.fulfilled, (state, action) => {
             state.user = action.payload.body.user;
             state.token = action.payload.body.token;
-          state.error = null;
-          state.loading = false;
+            sessionStorage.setItem('token', action.payload.body.token); // Stocke le token dans le sessionStorage
+            state.error = null;
+            state.loading = false;
         })
         .addCase(loginUser.rejected, (state, action) => {
           state.error = action.payload;
@@ -108,7 +110,11 @@ const userSlice = createSlice({
           .addCase(loginUser.pending, (state) => {
         state.loading = true;
       })
-        .addCase(getUserProfile.fulfilled, (state, action) => {
+          .addCase(getUserProfile.fulfilled, (state, action) => {
+          console.log('Reponse api brut', action.payload);
+           //state.user = action.payload.body.user; // je retire .body.user
+           console.log('Reponse api', action.payload.user);
+           
           state.user = action.payload;
            state.loading = false;// je retire .body.user
             state.error = null;

@@ -1,0 +1,329 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\ProtectedRoute.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\ProtectedRoute.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Router.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\Router.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\wireframes\\transactions.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\wireframes\\transactions.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\features\\userSlice.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\features\\userSlice.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\store\\store.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\store\\store.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\UtilsOld.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\UtilsOld.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\LogoutButton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\LogoutButton.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\header.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\header.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\footer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\footer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\account.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\account.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Pages\\User\\index.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\Pages\\User\\index.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Pages\\Login\\index.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\Pages\\Login\\index.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\feature-item.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\feature-item.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\heroold.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\heroold.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\UserInfoOld.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\components\\UserInfoOld.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\__tests__\\Login.test.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\__tests__\\Login.test.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArgentBank-app\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProtectedRoute.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\ProtectedRoute.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\ProtectedRoute.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\ProtectedRoute.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\ProtectedRoute.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T10:53:53.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "transactions.png - PNG [1926x1730, 32\u00A0bits, PNG]",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\wireframes\\transactions.png",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\wireframes\\transactions.png",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\wireframes\\transactions.png - PNG [1926x1730, 32\u00A0bits, PNG]",
+              "RelativeToolTip": "ArgentBank-app\\src\\wireframes\\transactions.png - PNG [1926x1730, 32\u00A0bits, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-04-10T10:46:27.085Z",
+              "EditorCaption": " - PNG [1926x1730, 32\u00A0bits, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\README.md",
+              "RelativeDocumentMoniker": "ArgentBank-app\\README.md",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\README.md",
+              "RelativeToolTip": "ArgentBank-app\\README.md",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAIsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-04-10T10:36:25.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UtilsOld.js",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\UtilsOld.js",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\UtilsOld.js",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\UtilsOld.js",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\UtilsOld.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-10T09:43:36.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Router.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Router.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\Router.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Router.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\Router.jsx",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:08:38.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LogoutButton.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\LogoutButton.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\LogoutButton.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\LogoutButton.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\LogoutButton.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:42:54.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "header.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\header.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\header.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\header.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\header.jsx",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAwAMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:42:35.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "userSlice.js",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\features\\userSlice.js",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\features\\userSlice.js",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\features\\userSlice.js",
+              "RelativeToolTip": "ArgentBank-app\\src\\features\\userSlice.js",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAH0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-10T09:41:06.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "index.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Pages\\User\\index.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\Pages\\User\\index.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Pages\\User\\index.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\Pages\\User\\index.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:40:21.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "feature-item.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\feature-item.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\feature-item.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\feature-item.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\feature-item.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:39:59.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "heroOld.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\heroOld.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\heroOld.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\heroOld.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\heroOld.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:39:54.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "store.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\store\\store.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\store\\store.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\store\\store.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\store\\store.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:09:53.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserInfoOld.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\UserInfoOld.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\UserInfoOld.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\UserInfoOld.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\UserInfoOld.jsx",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:38:51.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "index.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Pages\\Login\\index.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\Pages\\Login\\index.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\Pages\\Login\\index.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\Pages\\Login\\index.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:24:39.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "footer.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\footer.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\footer.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\footer.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\footer.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:17:44.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "account.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\account.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\components\\account.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\components\\account.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\components\\account.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:17:17.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.test.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\__tests__\\Login.test.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\__tests__\\Login.test.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\__tests__\\Login.test.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\__tests__\\Login.test.jsx",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T09:12:28.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "app.jsx",
+              "DocumentMoniker": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\app.jsx",
+              "RelativeDocumentMoniker": "ArgentBank-app\\src\\app.jsx",
+              "ToolTip": "C:\\Users\\sam11\\Documents\\GitHub\\Argent Bank\\ArgentBank-app\\src\\app.jsx",
+              "RelativeToolTip": "ArgentBank-app\\src\\app.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-10T08:53:12.608Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

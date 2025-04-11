@@ -1,0 +1,250 @@
+openapi: 3.0.0
+info:
+  title: Argent Bank API - Phase 2
+  description: API pour la gestion des transactions bancaires
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3001/api/v1
+
+paths:
+  /user/accounts:
+    get:
+      summary: Récupérer tous les comptes de l'utilisateur
+      description: Retourne la liste complète des comptes (checking, savings, credit card) de l'utilisateur authentifié
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Liste des comptes récupérée avec succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+
+  /user/accounts/{accountId}/transactions:
+    get:
+      summary: Récupérer les transactions d'un compte
+      description: Retourne la liste des transactions pour un compte spécifique avec possibilité de filtrer par mois
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique du compte
+        - name: month
+          in: query
+          required: false
+          schema:
+            type: string
+            pattern: '^\d{4}-\d{2}$'
+            example: '2025-04'
+          description: Mois pour filtrer les transactions (format YYYY-MM)
+      responses:
+        '200':
+          description: Liste des transactions récupérée avec succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+        '404':
+          description: Compte non trouvé
+
+  /user/accounts/{accountId}/transactions/{transactionId}:
+    get:
+      summary: Récupérer les détails d'une transaction spécifique
+      description: Retourne les informations détaillées d'une transaction, y compris la catégorie et les notes
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique du compte
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique de la transaction
+      responses:
+        '200':
+          description: Détails de la transaction récupérés avec succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+        '404':
+          description: Transaction non trouvée
+
+    patch:
+      summary: Modifier les informations d'une transaction
+      description: Permet de modifier la catégorie et/ou les notes d'une transaction
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique du compte
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique de la transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category:
+                  type: string
+                  example: "Food"
+                  description: Catégorie de la transaction
+                notes:
+                  type: string
+                  example: "Lunch with client"
+                  description: Notes personnelles sur la transaction
+      responses:
+        '200':
+          description: Informations de la transaction mises à jour avec succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
+        '400':
+          description: Requête invalide - Format de données incorrect
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+        '404':
+          description: Transaction non trouvée
+          
+  /user/accounts/{accountId}/transactions/{transactionId}/details:
+    delete:
+      summary: Supprimer les informations personnalisées d'une transaction
+      description: Permet de supprimer la catégorie et/ou les notes associées à une transaction (réinitialisation aux valeurs par défaut)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique du compte
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Identifiant unique de la transaction
+        - name: field
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [category, notes, all]
+            default: all
+          description: Champ spécifique à supprimer (category, notes ou tous par défaut)
+      responses:
+        '200':
+          description: Informations supprimées avec succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+        '404':
+          description: Transaction non trouvée
+          
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "a12b3c4d"
+        accountNumber:
+          type: string
+          example: "x8349"
+        accountType:
+          type: string
+          enum: [checking, savings, credit]
+          example: "checking"
+        balance:
+          type: number
+          format: double
+          example: 2082.79
+        balanceType:
+          type: string
+          enum: [available, current]
+          example: "available"
+
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "t-123456"
+        date:
+          type: string
+          format: date
+          example: "2025-04-10"
+        description:
+          type: string
+          example: "Golden Sun Bakery"
+        amount:
+          type: number
+          format: double
+          example: 50.00
+        balance:
+          type: number
+          format: double
+          example: 2187.79
+
+    TransactionDetail:
+      allOf:
+        - $ref: '#/components/schemas/Transaction'
+        - type: object
+          properties:
+            transactionType:
+              type: string
+              example: "Electronic"
+              description: Type de transaction (non modifiable)
+            category:
+              type: string
+              example: "Food"
+              description: Catégorie assignée par l'utilisateur
+            notes:
+              type: string
+              example: "Déjeuner d'affaires"
+              description: Notes personnelles sur la transaction

@@ -10,7 +10,7 @@ function UserInfo() {
 
     // Récupération des données utilisateur au montage du composant
     useEffect(() => {
-        dispatch(fetchUserData()); // Assurez-vous que fetchUserData prend un argument si nécessaire
+        dispatch(fetchUserData()); 
     }, [dispatch]);
 
     if (loading) {

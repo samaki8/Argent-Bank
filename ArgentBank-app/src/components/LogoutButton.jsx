@@ -11,7 +11,7 @@ const LogoutButton = () => {
 
     const handleLogout = async () => {
         await dispatch(logoutUser()); // Déconnecte l'utilisateur via Redux
-        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
         navigate("/logout"); // Redirige vers la page de déconnexion ou d'accueil
     };
 

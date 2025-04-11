@@ -1,7 +1,7 @@
-//import React from "react";
+//ArgentBank-app\src\components\header.jsx
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from "../img/argentBankLogo.png"; // Chemin corrigé pour le logo
+import logo from "../img/argentBankLogo.png";
 import LogoutButton from "./LogoutButton";
 //import { useEffect, useState } from "react";
 //import { getUserProfile, updateUserProfile, setToken } from '../../features/userSlice';

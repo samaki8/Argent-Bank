@@ -6,15 +6,25 @@ import { getUserProfile, updateUserProfile, setToken } from '../../features/user
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 function User() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [FirstName, setFirstName] = useState('');
+    const [LastName, setLastName] = useState('');
     const [isEditing, setIsEditing] = useState(false);
     const dispatch = useDispatch();
+
+    // Récupérez uniquement l'objet user du state Redux
     const user = useSelector((state) => state.user?.user || null);
-    //const token = useSelector((state) => state.user?.token || null);
-    const navigate = useNavigate();
-    // const error = useSelector((state) => state.user?.error || null);
+    const loading = useSelector((state) => state.user?.loading || false);
     const error = useSelector((state) => state.user?.error || null);
+    const navigate = useNavigate();
+
+    // Log pour débogage
+    console.log('Données avant rendu :', {
+        user,
+        isEditing,
+        loading
+    });
+
+
 
     useEffect(() => {
         if (error) {
@@ -23,7 +33,7 @@ function User() {
     }, [error]);
     //Initialisation des champs avec les données de l'utilisateur
     useEffect(() => {
-        const storedToken = localStorage.getItem('token');
+        const storedToken = sessionStorage.getItem('token');
         if (storedToken) {
 
             dispatch(setToken(storedToken)); // Créez une action setToken si nécessaire
@@ -35,33 +45,40 @@ function User() {
     useEffect(() => {
         if (user) {
             console.log('Données utilisateur :', user);
-            setFirstName(user.firstName || '');
-            setLastName(user.lastName || '');
+            setFirstName(user.firstName);
+            setLastName(user.lastName);
         }
     }, [user]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateUserProfile({ firstName, lastName }))
+        dispatch(updateUserProfile({ firstName: FirstName, lastName: LastName }))
             .unwrap()
             .then((response) => {
                 if (response && response.body && response.body.token) {
-                    localStorage.setItem('token', response.body.token);
+                    sessionStorage.setItem('token', response.body.token);
                 }
-                navigate('/user'); // Redirige toujours vers la page utilisateur
+                dispatch(getUserProfile());
+                setIsEditing(false);
             })
             .catch((error) => {
                 console.error('Erreur lors de la mise à jour du profil :', error);
             });
-        setIsEditing(false); // Réinitialise l'état d'édition
     };
 
 
     const handleCancel = () => {
         setIsEditing(false); // Réinitialise l'état d'édition
-        setFirstName(user.firstName || ''); // Réinitialise les champs avec les données de l'utilisateur
-        setLastName(user.lastName || '');
+        // Réinitialise les champs avec les données de l'utilisateur
+        setFirstName(user.firstName);
+        setLastName(user.lastName);
+        // Redirige vers la page utilisateur    
+        navigate('/user');
+
+
     };
+
+
 
     return (
         <>
@@ -69,25 +86,53 @@ function User() {
 
             <main className="main bg-dark">
                 <div className="header">
-                    <h1>Welcome back<br /> {firstName} {lastName}!</h1>
-                    <button type="button" className="edit-button" onClick={() => setIsEditing(true)}>Edit Name</button>
-                    {isEditing ? (
-                        <form onSubmit={handleSubmit} className="form">
-                            <label htmlFor="firstName">First Name</label>
-                            <input
-                                type="text"
-                                id="firstName"
-                                name="firstName"
-                                placeholder={firstName}
-                                value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    {loading}
+                    {/* Affichage en mode non-édition */}
 
-                            <label htmlFor="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" placeholder={lastName} value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                    {!isEditing && !loading && (
+                        <>
+                            <h1>
+                                Welcome back<br />
+                                {user?.firstName} {user?.lastName}!
+                            </h1>
+                            <button type="button" className="edit-button" onClick={() => setIsEditing(true)}>
+                                Edit Name
+                            </button>
+                        </>
 
-                            <button type="submit" className="submit-button">Submit</button>
-                            <button type="button" className="cancel-button" onClick={handleCancel}>Cancel</button>
-                        </form>
-                    ) : null}
+                    )}
+
+                    {/* Affichage en mode édition */}
+                    {isEditing && (
+                        <>
+                            <h1> Welcome back </h1>
+                            <form onSubmit={handleSubmit} className="form">
+                                <label htmlFor="firstName">First Name</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    placeholder={user?.firstName || ''}
+                                    value={FirstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                />
+
+                                <label htmlFor="lastName">Last Name</label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    placeholder={user?.lastName || ''}
+                                    value={LastName}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                />
+
+                                <button type="submit" className="submit-button">Save</button>
+                                <button type="button" className="cancel-button" onClick={handleCancel}>Cancel</button>
+                            </form>
+                        </>
+                    )}
+
                 </div>
                 <h2 className="sr-only">Accounts</h2>
 

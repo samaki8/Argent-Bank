@@ -13,7 +13,7 @@ const Logout = () => {
         // Redirige vers la page d'accueil après 10 secondes
         const timer = setTimeout(() => {
             navigate('/');
-        }, 10000);
+        }, 5000);
 
         // Nettoie le timer si le composant est démonté avant les 10 secondes
         return () => clearTimeout(timer);
