@@ -29,7 +29,7 @@ function Login() {
             .unwrap() // Permet de gérer les promesses rejetées si nécessaire
             .then((response) => {
                 if (response.body.token) {
-                    localStorage.setItem('token', response.body.token); // Stocke le token dans le localStorage
+                    sessionStorage.setItem('token', response.body.token); // Stocke le token dans le localStorage
                     navigate('/user'); // Redirige vers /user si le token existe
                 }
             })
