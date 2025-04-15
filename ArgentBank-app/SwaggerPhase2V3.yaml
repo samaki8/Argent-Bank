@@ -1,0 +1,455 @@
+openapi: 3.0.0
+info:
+  title: Argent Bank API - Phase 2
+  description: API pour la gestion des comptes et des transactions bancaires
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3001/api/v1
+# Sécurité globale (tous les endpoints)
+security:
+  - bearerAuth: []
+
+paths:
+  /accounts:
+    get:
+      tags:
+        - Account Module
+      summary: Récupérer tous les comptes
+      description: Retourne la liste complète des comptes (checking, savings, credit card)
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Liste des comptes récupérée avec succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        '400':
+          description: Requête invalide - Paramètres manquants ou format incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 400
+                message: "Requête invalide"
+                details: "Format de requête incorrect"
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 401
+                message: "Non autorisé"
+                details: "Token d'authentification manquant ou invalide"
+        '404':
+          description: Aucun compte trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 404
+                message: "Ressource non trouvée"
+                details: "Aucun compte disponible pour cet utilisateur"
+        '500':
+          description: Erreur interne du serveur
+          #content:
+            #application/json:
+             # schema:
+               # $ref: '#/components/schemas/ErrorResponse'
+             # example:
+               # status: 500
+               # message: "Erreur interne du serveur"
+               # details: "Impossible de récupérer les comptes"
+
+  /accounts/{accountId}:
+    get:
+      tags:
+        - Account Module
+      summary: Récupérer les détails d'un compte spécifique
+      description: Retourne les informations détaillées d'un compte
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID du compte bancaire
+      responses:
+        '200':
+          description: Détails du compte récupérés avec succès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '400':
+          description: Requête invalide - Paramètres manquants ou format incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 400
+                message: "Requête invalide"
+                details: "ID de compte au format incorrect"
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 401
+                message: "Non autorisé"
+                details: "Accès non autorisé à ce compte"
+        '404':
+          description: Compte non trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 404
+                message: "Compte non trouvé"
+                details: "Le compte spécifié n'existe pas"
+        '500':
+          description: Erreur interne du serveur
+          #content:
+            #application/json:
+             # schema:
+               # $ref: '#/components/schemas/ErrorResponse'
+             # example:
+               # status: 500
+               # message: "Erreur interne du serveur"
+               # details: "Impossible de récupérer les détails du compte"
+
+  /transactions/{accountId}:
+    get:
+      tags:
+        - Transactions Module
+      summary: Récupérer les transactions d'un compte
+      description: Retourne la liste des transactions associées à un compte.
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID du compte bancaire.
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 1
+          description: Numéro de la page 
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 10
+          description: Nombre maximum de transactions par page
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Liste des transactions récupérée avec succès.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '400':
+          description: Requête invalide - Paramètres manquants ou format incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 400
+                message: "Requête invalide"
+                details: "Paramètres de pagination incorrects"
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 401
+                message: "Non autorisé"
+                details: "Accès non autorisé aux transactions de ce compte"
+        '404':
+          description: Compte non trouvé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 404
+                message: "Compte non trouvé"
+                details: "Le compte spécifié n'existe pas"
+        '500':
+          description: Erreur interne du serveur
+          #content:
+           # application/json:
+             # schema:
+              #  $ref: '#/components/schemas/ErrorResponse'
+             # example:
+               # status: 500
+               # message: "Erreur interne du serveur"
+               # details: "Impossible de récupérer les transactions"
+
+  /transactions/{accountId}/{transactionId}:
+    get:
+      tags:
+        - Transactions Module
+      summary: Récupérer les détails d'une transaction spécifique
+      description: Retourne les informations détaillées d'une transaction.
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID du compte bancaire.
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID de la transaction.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Détails de la transaction récupérés avec succès.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
+        '400':
+          description: Requête invalide - Paramètres manquants ou format incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 400
+                message: "Requête invalide"
+                details: "ID de transaction au format incorrect"
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 401
+                message: "Non autorisé"
+                details: "Accès non autorisé à cette transaction"
+        '404':
+          description: Transaction non trouvée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 404
+                message: "Transaction non trouvée"
+                details: "La transaction spécifiée n'existe pas"
+        '500':
+          description: Erreur interne du serveur
+          #content:
+            #application/json:
+             # schema:
+               # $ref: '#/components/schemas/ErrorResponse'
+            #  example:
+              #  status: 500
+              #  message: "Erreur interne du serveur"
+               # details: "Impossible de récupérer les détails de la transaction"
+
+    patch:
+      tags:
+        - Transactions Module
+      summary: Modifier une transaction existante (catégorie et notes)
+      description: Permet de modifier la catégorie ou les notes associées à une transaction spécifique.
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID du compte bancaire.
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID de la transaction.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category:
+                  type: string
+                  example: "Food"
+                  description: Catégorie assignée par l'utilisateur.
+                notes:
+                  type: string
+                  example: "Déjeuner avec un client."
+                  description: Notes personnelles sur la transaction.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Transaction modifiée avec succès.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetail'
+        '400':
+          description: Requête invalide - Format incorrect des données de mise à jour
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 400
+                message: "Requête invalide"
+                details: "Format incorrect des données de mise à jour"
+        '401':
+          description: Non autorisé - Token d'authentification manquant ou invalide
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 401
+                message: "Non autorisé"
+                details: "Modifications non autorisées sur cette transaction"
+        '404':
+          description: Transaction non trouvée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                status: 404
+                message: "Transaction non trouvée"
+                details: "La transaction à modifier n'existe pas"
+        '500':
+          description: Erreur interne du serveur
+          #content:
+            #application/json:
+              #schema:
+               # $ref: '#/components/schemas/ErrorResponse'
+              #example:
+               # status: 500
+                #message: "Erreur interne du serveur"
+                #details: "Impossible de modifier la transaction"#
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Attach Bearer JWT token"
+
+  schemas:
+    Account:
+      type: object
+      properties:
+        id: 
+          type: string
+          example: "a12b3c4d"
+        accountNumber:
+          type: string
+          example: "x8349"
+        accountType:
+          type: string
+          enum: [checking, savings, credit]
+          example: "checking"
+        balance:
+          type: number
+          example: 2082.79
+        balanceType:
+          type: string
+          enum: [available, current]
+          example: "available"
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "t-123456"
+        date:
+          type: string
+          format: date
+          example: "2025-04-10"
+        description:
+          type: string
+          example: "Golden Sun Bakery"
+        amount:
+          type: number
+          example: 50.00
+        balance:
+          type: number
+          example: 2187.79
+        transactionType:
+          type: string
+          example: "Electronic"
+        category:
+          type: string
+          example: "Food"
+        notes:
+          type: string
+          example: "Déjeuner d'affaires"  
+    TransactionDetail:
+      allOf:
+        - $ref: '#/components/schemas/Transaction'
+        - type: object
+          properties:
+            transactionType:
+              type: string
+              example: "Electronic"
+              description: Type de transaction (non modifiable)
+            category:
+              type: string
+              example: "Food"
+              description: Catégorie assignée par l'utilisateur
+            notes:
+              type: string
+              example: "Déjeuner d'affaires"
+              description: Notes personnelles sur la transaction
+
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+        details:
+          type: string
+  responses:
+    BadRequest:
+      description: Requête invalide - Paramètres manquants ou format incorrect
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
