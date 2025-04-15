@@ -41,7 +41,12 @@ function User() {
             console.log('Récupération des données utilisateur', getUserProfile());
             dispatch(getUserProfile());
         }
-    }, [dispatch]);
+        else {
+            console.error('Aucun token trouvé dans le sessionStorage.');
+            // Redirigez vers la page de connexion ou gérez l'erreur comme vous le souhaitez
+            navigate('/login');
+        }
+    }, [dispatch, navigate]);
 
     useEffect(() => {
         if (user) {
