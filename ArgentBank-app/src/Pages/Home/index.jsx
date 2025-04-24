@@ -1,7 +1,7 @@
 //import React from 'react';
-import FeatureItem from '../../components/feature-item';
-import Footer from '../../components/footer';
-import Header from '../../components/header';
+import FeatureItem from '@/components/feature-item';
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 
 function Home() {
     return (

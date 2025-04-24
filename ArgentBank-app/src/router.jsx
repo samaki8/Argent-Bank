@@ -24,7 +24,7 @@ function Router() {
                 {/* Route pour la déconnexion */}
                 <Route path="/logout" element={<Logout />} />
                 {/* Route pour les erreurs */}
-                <Route path="*" element={<Error />} />
+                <Route path="/*" element={<Error />} />
             </Routes>
         </BrowserRouter>
     );

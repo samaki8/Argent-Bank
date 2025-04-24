@@ -1,9 +1,9 @@
 
 
-function Error(message) {
+function Error() {
     return (
         <div className="error">
-            <p>{message}</p>
+            <p> Not found </p>
         </div>
     )
 }
